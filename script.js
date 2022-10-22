@@ -1,35 +1,37 @@
+
 function carregar(){
 
-    var msg = document.querySelector('#msg');
-    var image = document.querySelector('#image');
-    var data = new Date()
-    var hora =  data.getHours()
-    var min = data.getMinutes()
-    var sec = data.getSeconds()
-    if(hora < 10) hora = "0" + hora;
-    if(min < 10) min = "0" + min;
-    if(sec < 10) sec = "0" + sec;
-    var tempo = hora + ":" + min + ":" + sec;
-    msg.innerHTML = tempo;
-    
-    
-    
+let msg = document.querySelector('#msg');
+let img = document.querySelector('#img');
 
-    if(hora >= 0 && hora < 12){
-        //Bom dia
-        image.src = 'images/manha.png'
-        document.body.style.background = '#e2cd9f'
-    } else if(hora >= 12 && hora < 18){
-        //Boa tarde
-        image.src = 'images/tarde.png'
-        document.body.style.background = '#b9846f'
-    } else {
-        image.src = 'images/noite.png'
-        document.body.style.background = '#515154'
-    }
-    var initTimer = setInterval(carregar, 1000);
-    
+let time = new Date();
+let hora = time.getHours();
+let min = time.getMinutes();
+let sec = time.getSeconds();
+
+if(hora < 10) hora = "0" + hora;
+if(min < 10) min = "0" + min;
+if(sec < 10) sec = "0" + sec;
+
+let temp = hora + ":" + min // + ":" + sec;
+
+if(hora >= 0 && hora < 12){
+    img.src = 'images/manha.png'
+    document.body.style.background = '#fde782';
+} else if (hora >= 12 && hora < 18){
+    img.src = 'images/tarde.png'
+    document.body.style.background = '#c57c4f';
+} else {
+    img.src = 'images/noite.png';
+    document.body.style.background = '#011f41';
 }
 
-    
 
+
+
+msg.innerHTML = temp;
+
+ //let timer = setInterval(carregar, 1000);
+
+
+}
